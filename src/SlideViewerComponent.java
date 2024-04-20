@@ -18,8 +18,6 @@ import javax.swing.JFrame;
  */
 
 public class SlideViewerComponent extends JComponent {
-		
-	private Slide slide; //The current slide
 	private Font labelFont = null; //The font for labels
 	private Presentation presentation = null; //The presentation
 	private JFrame frame = null;
@@ -45,13 +43,12 @@ public class SlideViewerComponent extends JComponent {
 		return new Dimension(Slide.WIDTH, Slide.HEIGHT);
 	}
 
-	public void update(Presentation presentation, Slide data) {
-		if (data == null) {
+	public void update(Presentation presentation) {
+		if (presentation.getCurrentSlide() == null) {
 			repaint();
 			return;
 		}
 		this.presentation = presentation;
-		this.slide = data;
 		repaint();
 		frame.setTitle(presentation.getTitle());
 	}
@@ -60,7 +57,7 @@ public class SlideViewerComponent extends JComponent {
 	public void paintComponent(Graphics g) {
 		g.setColor(BGCOLOR);
 		g.fillRect(0, 0, getSize().width, getSize().height);
-		if (slide == null) {
+		if (presentation.getCurrentSlide()== null) {
 			return;
 		}
 		g.setFont(labelFont);
@@ -68,7 +65,7 @@ public class SlideViewerComponent extends JComponent {
 		g.drawString("Slide " + (1 + presentation.getSlideNumber()) + " of " +
                  presentation.getSize(), XPOS, YPOS);
 		Rectangle area = new Rectangle(0, YPOS, getWidth(), (getHeight() - YPOS));
-		slide.draw(g, area, this);
+		presentation.getCurrentSlide().draw(g,area,this);
 	}
 
 	public Presentation getPresentation() {

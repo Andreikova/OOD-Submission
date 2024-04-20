@@ -45,9 +45,10 @@ public class MenuController extends MenuBar {
 	protected static final String LOADERR = "Load Error";
 	protected static final String SAVEERR = "Save Error";
 
-	public MenuController(Frame frame, Presentation pres) {
+    public MenuController(Frame frame, SlideViewerComponent viewerComponent) {
 		parent = frame;
-		presentation = pres;
+        presentation = viewerComponent.getPresentation();
+
 		MenuItem menuItem;
 		Menu fileMenu = new Menu(FILE);
 		fileMenu.add(menuItem = mkMenuItem(OPEN));
@@ -58,6 +59,7 @@ public class MenuController extends MenuBar {
 				try {
 					xmlAccessor.loadFile(presentation, TESTFILE);
 					presentation.setSlideNumber(0);
+					viewerComponent.update(presentation);
 				} catch (IOException exc) {
 					JOptionPane.showMessageDialog(parent, IOEX + exc, 
          			LOADERR, JOptionPane.ERROR_MESSAGE);
@@ -97,12 +99,14 @@ public class MenuController extends MenuBar {
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
 				presentation.nextSlide();
+				viewerComponent.update(presentation);
 			}
 		});
 		viewMenu.add(menuItem = mkMenuItem(PREV));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
 				presentation.prevSlide();
+				viewerComponent.update(presentation);
 			}
 		});
 		viewMenu.add(menuItem = mkMenuItem(GOTO));
@@ -111,6 +115,7 @@ public class MenuController extends MenuBar {
 				String pageNumberStr = JOptionPane.showInputDialog((Object)PAGENR);
 				int pageNumber = Integer.parseInt(pageNumberStr);
 				presentation.setSlideNumber(pageNumber - 1);
+				viewerComponent.update(presentation);
 			}
 		});
 		add(viewMenu);
