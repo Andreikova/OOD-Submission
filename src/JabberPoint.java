@@ -34,6 +34,7 @@ public class JabberPoint {
 				new XMLAccessor().loadFile(pres, argv[0]);
 			}
 			pres.setSlideNumber(0);
+			frame.getViewComponent().update(pres);
 		} catch (IOException ex) {
 			JOptionPane.showMessageDialog(null,
 					IOERR + ex, JABERR,

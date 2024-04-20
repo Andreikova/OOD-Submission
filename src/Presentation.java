@@ -47,7 +47,6 @@ public class Presentation {
 	//Change the current slide number and report it the window
 	public void setSlideNumber(int number) {
 		currentSlideNumber = number;
-		//TODO: add update from the comp to keep updating
 	}
 
 	//Navigate to the previous slide unless we are at the first slide
