@@ -11,28 +11,27 @@ import java.awt.event.KeyAdapter;
  * @version 1.6 2014/05/16 Sylvia Stuurman
 */
 
-public class KeyController extends KeyAdapter {
-	private Presentation presentation; //Commands are given to the presentation
-	private SlideViewerComponent viewerComponent;
-	public KeyController(SlideViewerComponent viewerComponent) {
-		this.viewerComponent = viewerComponent;
-		presentation = viewerComponent.getPresentation();
+public class KeyController extends KeyAdapter{
+	private SlideViewerFrame viewerFrame;
+	public KeyController(SlideViewerFrame viewerFrame) {
+		this.viewerFrame = viewerFrame;
 	}
 
 	public void keyPressed(KeyEvent keyEvent) {
+		Presentation pres = viewerFrame.getViewComponent().getPresentation();
 		switch(keyEvent.getKeyCode()) {
 			case KeyEvent.VK_PAGE_DOWN:
 			case KeyEvent.VK_DOWN:
 			case KeyEvent.VK_ENTER:
 			case '+':
-				presentation.nextSlide();
-				viewerComponent.update(presentation);
+				pres.nextSlide();
+				viewerFrame.getViewComponent().update(pres);
 				break;
 			case KeyEvent.VK_PAGE_UP:
 			case KeyEvent.VK_UP:
 			case '-':
-				presentation.prevSlide();
-				viewerComponent.update(presentation);
+				pres.prevSlide();
+				viewerFrame.getViewComponent().update(pres);
 				break;
 			case 'q':
 			case 'Q':
