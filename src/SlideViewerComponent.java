@@ -60,7 +60,7 @@ public class SlideViewerComponent extends JComponent {
 	public void paintComponent(Graphics g) {
 		g.setColor(BGCOLOR);
 		g.fillRect(0, 0, getSize().width, getSize().height);
-		if (presentation.getSlideNumber() < 0 || slide == null) {
+		if (slide == null) {
 			return;
 		}
 		g.setFont(labelFont);

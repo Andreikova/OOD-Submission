@@ -26,12 +26,12 @@ public class SlideViewerFrame extends JFrame {
 		SlideViewerComponent slideViewerComponent = new SlideViewerComponent(this);
 		this.viewComponent = slideViewerComponent;
 		viewComponent.getPresentation().setShowView(slideViewerComponent);
-		setupWindow(slideViewerComponent, viewComponent.getPresentation());
+		setupWindow(slideViewerComponent);
 	}
 
-//Setup the GUI
+//Set up the GUI
 	public void setupWindow(SlideViewerComponent 
-			slideViewerComponent, Presentation presentation) {
+			slideViewerComponent) {
 		setTitle(JABTITLE);
 		addWindowListener(new WindowAdapter() {
 				public void windowClosing(WindowEvent e) {
@@ -39,8 +39,8 @@ public class SlideViewerFrame extends JFrame {
 				}
 			});
 		getContentPane().add(slideViewerComponent);
-		addKeyListener(new KeyController(presentation)); //Add a controller
-		setMenuBar(new MenuController(this, presentation));	//Add another controller
+		addKeyListener(new KeyController(slideViewerComponent.getPresentation())); //Add a controller
+		setMenuBar(new MenuController(this, slideViewerComponent.getPresentation()));	//Add another controller
 		setSize(new Dimension(WIDTH, HEIGHT)); //Same sizes a slide has
 		setVisible(true);
 	}
