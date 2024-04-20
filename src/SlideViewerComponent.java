@@ -34,9 +34,9 @@ public class SlideViewerComponent extends JComponent {
 	private static final int XPOS = 1100;
 	private static final int YPOS = 20;
 
-	public SlideViewerComponent(Presentation pres, JFrame frame) {
+	public SlideViewerComponent(JFrame frame) {
 		setBackground(BGCOLOR); 
-		presentation = pres;
+		presentation = new Presentation();
 		labelFont = new Font(FONTNAME, FONTSTYLE, FONTHEIGHT);
 		this.frame = frame;
 	}
@@ -69,5 +69,9 @@ public class SlideViewerComponent extends JComponent {
                  presentation.getSize(), XPOS, YPOS);
 		Rectangle area = new Rectangle(0, YPOS, getWidth(), (getHeight() - YPOS));
 		slide.draw(g, area, this);
+	}
+
+	public Presentation getPresentation() {
+		return presentation;
 	}
 }

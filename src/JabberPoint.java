@@ -25,15 +25,15 @@ public class JabberPoint {
 	public static void main(String[] argv) {
 		
 		Style.createStyles();
-		Presentation presentation = new Presentation();
-		new SlideViewerFrame(JABVERSION, presentation);
+		SlideViewerFrame frame =new SlideViewerFrame(JABVERSION);
+		Presentation pres = frame.getViewComponent().getPresentation();
 		try {
 			if (argv.length == 0) { //a demo presentation
-				Accessor.getDemoAccessor().loadFile(presentation, "");
+				Accessor.getDemoAccessor().loadFile(/*add frame.comp.pres */pres, "");
 			} else {
-				new XMLAccessor().loadFile(presentation, argv[0]);
+				new XMLAccessor().loadFile(pres, argv[0]);
 			}
-			presentation.setSlideNumber(0);
+			pres.setSlideNumber(0);
 		} catch (IOException ex) {
 			JOptionPane.showMessageDialog(null,
 					IOERR + ex, JABERR,
