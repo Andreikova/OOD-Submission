@@ -1,10 +1,15 @@
+package Presentation;
+
+import Controllers.KeyController;
+import Controllers.MenuController;
+
 /*This class is meant to manage the controllers and the presentation
 * the creating of frame etc etc */
 public class Manager {
     private KeyController keyControl;
     private MenuController menuControl;
     private SlideViewerFrame viewerFrame;
-    Manager(String title){
+    public Manager(String title){
         this.viewerFrame = new SlideViewerFrame(title);
         this.keyControl = new KeyController(viewerFrame);
 
