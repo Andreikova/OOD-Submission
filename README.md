@@ -1,5 +1,5 @@
 # OOD-Submission
-
+This is an assignment for the class Object Orientated Design. The assignment is to refactor an application called Jabberpoint.
 ### Changes made
 | Problem                                                             | Purposed change                                                     | Why its a good thing                                                                                   |
 |---------------------------------------------------------------------|---------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
