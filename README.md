@@ -9,6 +9,6 @@ This is an assignment for the class Object Orientated Design. The assignment is 
 
 
 ### Resit changes made
-| Problem | Purposed change | Why it's a good thing   | 
-| --------- | --------------- |-------------------------|
-|1. Maintainability - Jabberpoint needs to be aware of **(1)** Viewer component, **(2)** Viewer Frame, **(3)** Manager| Add private fields in Jabberpoint to allow it to see the different components. |                    |
+| Problem | Purposed change | Why it's a good thing                                                                                                                                                                               | 
+| --------- | --------------- |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|1. Maintainability - Jabberpoint needs to be aware of **(1)** Viewer component, **(2)** Viewer Frame, **(3)** Manager| Add private fields in Jabberpoint to allow it to see the different components. | Allows testability of individual components seperately from others such as the manager without having the gui being rendered. Reducing redundant code as there is no need for two slide renders etc |
