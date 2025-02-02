@@ -46,9 +46,18 @@ public class Slide {
 	}
 
 	//Returns the Presentation.SlideItem
-	public SlideItem getSlideItem(int number) {
-		return (SlideItem)items.elementAt(number);
-	}
+	public SlideItem getSlideItem(int number) throws OutOfBoundsException{
+		try {
+			//Error for if an incorrect slide number is given
+			if (this.items.contains(items.elementAt(number))){
+				throw new OutOfBoundsException();
+			}
+			return (SlideItem) items.elementAt(number);
+
+		} catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 	//Return all the SlideItems in a vector
 	public Vector<SlideItem> getSlideItems() {
@@ -78,7 +87,7 @@ public class Slide {
 	}
 
 	//Returns the scale to draw a slide
-	private float getScale(Rectangle area) {
+	protected float getScale(Rectangle area) {
 		return Math.min(((float)area.width) / ((float)WIDTH), ((float)area.height) / ((float)HEIGHT));
 	}
 }
