@@ -1,7 +1,6 @@
 package Application;
 
 import Presentation.*;
-
 import javax.swing.JOptionPane;
 import java.io.IOException;
 
@@ -26,7 +25,6 @@ public class JabberPoint {
 	protected static Manager manager;
 	protected static SlideViewerFrame viewerFrame;
 	private static SlideViewerComponent viewerComponent;
-
 
 	public static Manager getManager()
 	{
@@ -60,7 +58,6 @@ public class JabberPoint {
 
 	/* The main program */
 	public static void main(String[] argv) {
-
 		Style.createStyles();
 		setManager(new Manager(JABVERSION));
 		setViewerFrame(manager.getViewerFrame());
