@@ -75,8 +75,7 @@ public class TextItem extends SlideItem {
 	}
 
 //Draws the item
-	public void draw(int x, int y, float scale, Graphics g,
-                     Style myStyle, ImageObserver o) {
+	public void draw(int x, int y, float scale, Graphics g, Style myStyle, ImageObserver o) {
 		if (text == null || text.length() == 0) {
 			return;
 		}
@@ -92,7 +91,7 @@ public class TextItem extends SlideItem {
 			layout.draw(g2d, pen.x, pen.y);
 			pen.y += layout.getDescent();
 		}
-	  }
+	}
 
 	private List<TextLayout> getLayouts(Graphics g, Style s, float scale) {
 		List<TextLayout> layouts = new ArrayList<TextLayout>();

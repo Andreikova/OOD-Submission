@@ -2,7 +2,6 @@ package Presentation;
 
 import java.util.ArrayList;
 
-
 /**
  * <p>Presentations keeps track of the slides in a presentation.</p>
  * <p>Only one instance of this class is available.</p>
@@ -43,12 +42,12 @@ public class Presentation {
 
 	//Returns the number of the current slide
 	public int getSlideNumber() {
-		return currentSlideNumber;
+		return this.currentSlideNumber;
 	}
 
 	//Change the current slide number and report it the window
 	public void setSlideNumber(int number) {
-		currentSlideNumber = number;
+		this.currentSlideNumber = number;
 	}
 
 	//Navigate to the previous slide unless we are at the first slide
@@ -81,6 +80,7 @@ public class Presentation {
 		if (number < 0 || number >= getSize()){
 			return null;
 	    }
+
 			return (Slide)showList.get(number);
 	}
 

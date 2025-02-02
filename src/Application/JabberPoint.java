@@ -1,11 +1,8 @@
 package Application;
 
-import Presentation.Presentation;
-import Presentation.Style;
-import Presentation.Manager;
+import Presentation.*;
 
 import javax.swing.JOptionPane;
-
 import java.io.IOException;
 
 /** JabberPoint Main Program
@@ -22,17 +19,56 @@ import java.io.IOException;
  * @version 1.6 2014/05/16 Sylvia Stuurman
  */
 
+
+
 public class JabberPoint {
 	protected static final String IOERR = "IO Error: ";
 	protected static final String JABERR = "Jabberpoint Error ";
 	protected static final String JABVERSION = "Jabberpoint 1.6 - OU version";
+	protected static Manager manager;
+	protected static SlideViewerFrame viewerFrame;
+	private static SlideViewerComponent viewerComponent;
 
-	/** The main program */
+
+	public static Manager getManager()
+	{
+		return manager;
+	}
+
+	public static void setManager(Manager manager)
+	{
+		JabberPoint.manager = manager;
+	}
+
+	public static SlideViewerFrame getViewerFrame()
+	{
+		return viewerFrame;
+	}
+
+	public static void setViewerFrame(SlideViewerFrame viewerFrame)
+	{
+		JabberPoint.viewerFrame = viewerFrame;
+	}
+
+	public static SlideViewerComponent getViewerComponent()
+	{
+		return viewerComponent;
+	}
+
+	public static void setViewerComponent(SlideViewerComponent viewerComponent)
+	{
+		JabberPoint.viewerComponent = viewerComponent;
+	}
+
+	/* The main program */
 	public static void main(String[] argv) {
-		
+
 		Style.createStyles();
-		Manager manager = new Manager(JABVERSION);
-		Presentation pres = manager.getViewerFrame().getViewComponent().getPresentation();
+		setManager(new Manager(JABVERSION));
+		setViewerFrame(manager.getViewerFrame());
+		setViewerComponent(getViewerFrame().getViewComponent());
+		Presentation pres = getViewerComponent().getPresentation();
+
 		try {
 			if (argv.length == 0) { //a demo presentation
 				Accessor.getDemoAccessor().loadFile(/*add frame.comp.pres */pres, "");

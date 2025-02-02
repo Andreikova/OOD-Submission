@@ -64,6 +64,7 @@ public class MenuController extends MenuBar {
 			public void actionPerformed(ActionEvent actionEvent) {
 				presentation.clear();
 				Accessor xmlAccessor = new XMLAccessor();
+
 				try {
 					xmlAccessor.loadFile(presentation, TESTFILE);
 					presentation.setSlideNumber(0);
@@ -74,7 +75,8 @@ public class MenuController extends MenuBar {
 				}
 				parent.repaint();
 			}
-		} );
+		});
+
 		fileMenu.add(menuItem = mkMenuItem(NEW));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
@@ -82,6 +84,7 @@ public class MenuController extends MenuBar {
 				parent.repaint();
 			}
 		});
+
 		fileMenu.add(menuItem = mkMenuItem(SAVE));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -94,6 +97,7 @@ public class MenuController extends MenuBar {
 				}
 			}
 		});
+
 		fileMenu.addSeparator();
 		fileMenu.add(menuItem = mkMenuItem(EXIT));
 		menuItem.addActionListener(new ActionListener() {
@@ -101,6 +105,7 @@ public class MenuController extends MenuBar {
 				presentation.exit(0);
 			}
 		});
+
 		add(fileMenu);
 		Menu viewMenu = new Menu(VIEW);
 		viewMenu.add(menuItem = mkMenuItem(NEXT));
@@ -110,6 +115,7 @@ public class MenuController extends MenuBar {
 				viewerComponent.update(presentation);
 			}
 		});
+
 		viewMenu.add(menuItem = mkMenuItem(PREV));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
@@ -117,6 +123,7 @@ public class MenuController extends MenuBar {
 				viewerComponent.update(presentation);
 			}
 		});
+
 		viewMenu.add(menuItem = mkMenuItem(GOTO));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
@@ -126,6 +133,7 @@ public class MenuController extends MenuBar {
 				viewerComponent.update(presentation);
 			}
 		});
+
 		add(viewMenu);
 		Menu helpMenu = new Menu(HELP);
 		helpMenu.add(menuItem = mkMenuItem(ABOUT));
@@ -134,6 +142,7 @@ public class MenuController extends MenuBar {
 				AboutBox.show(parent);
 			}
 		});
+
 		setHelpMenu(helpMenu);		//Needed for portability (Motif, etc.).
 	}
 

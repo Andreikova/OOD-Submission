@@ -19,7 +19,7 @@ public abstract class SlideItem {
 	private int level = 0; //The level of the Presentation.SlideItem
 
 	public SlideItem(int lev) {
-		level = lev;
+		this.level = lev;
 	}
 
 	public SlideItem() {
@@ -28,7 +28,7 @@ public abstract class SlideItem {
 
 //Returns the level
 	public int getLevel() {
-		return level;
+		return this.level;
 	}
 
 //Returns the bounding box
@@ -36,6 +36,5 @@ public abstract class SlideItem {
 			ImageObserver observer, float scale, Style style);
 
 //Draws the item
-	public abstract void draw(int x, int y, float scale,
-                              Graphics g, Style style, ImageObserver observer);
+	public abstract void draw(int x, int y, float scale, Graphics g, Style style, ImageObserver observer);
 }

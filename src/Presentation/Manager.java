@@ -4,7 +4,7 @@ import Controllers.KeyController;
 import Controllers.MenuController;
 
 /*This class is meant to manage the controllers and the presentation
-* the creating of frame etc etc */
+* the creating of frame etc */
 public class Manager {
     private KeyController keyControl;
     private MenuController menuControl;
@@ -12,7 +12,6 @@ public class Manager {
     public Manager(String title){
         this.viewerFrame = new SlideViewerFrame(title);
         this.keyControl = new KeyController(viewerFrame);
-
         this.menuControl = new MenuController(viewerFrame,viewerFrame.getViewComponent());
     }
 
